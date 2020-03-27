@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body id="bodyColor">
+   <p>
+      <label>Questionario</label>
+   </p>
+   <p>
+      <label>Digita seu nome:</label>
+      <input type="text" id="valueName">
+   </p>
+   <p>
+      <label>Qual sua cor favorita: #</label>
+      <input type="text" id="valueCor">
+   </p>
+   <p>
+      <label>Qual sua idade:</label>
+      <input type="text" id="valueAge">
+   </p>
+   <p>
+      <label>Está residindo em qual cidade:</label>
+      <input type="text" id="valueCity">
+   </p>
+   <button onclick="location.reload();">Salvar</button>
+   <div class="resposta">
+      <p>
+         <label>seu nome é:</label>
+         <h1 id="nomeSet"></h1>
+      </p>
+      <p>
+         <label>seu idade é:</label>
+         <h2 id="ageSet"></h2>
+      </p>
+      <p id="citySet"></p>
+   </div>
+</body>
+<script src="./script.js"></script>
+
+</html>
