@@ -1,21 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+   <title>Geolocation</title>
+   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+   <meta charset="utf-8">
+   <style>
+      #map {
+         height: 100%;
+      }
 
+      html,
+      body {
+         height: 100%;
+         margin: 0;
+         padding: 0;
+      }
+   </style>
 </head>
 
 <body>
-    <div id="map">
+   <h3>My Google Maps Demo</h3>
+
+   <div id="map"></div>
+   <script>
+      window.onload = function () {
+         getLocation();
+      }
+
+      const uluru = {};
+
+      function getLocation() {
+         navigator.geolocation.getCurrentPosition(showPosition);
+         showPosition(position);
+      }
+
+      function showPosition(position) {
+         const latPos = position.coords.latitude;
+         const longPos = position.coords.longitude;
+         const uluru = {
+            lat: latPos,
+            long: longPos
+         }
+      }
 
 
-        <button id="localiza">Verificar Localização</button>
-        <p id="local"></p>
-    </div>
+      function initMap() {
+
+         var map = new google.maps.Map(
+            document.getElementById('map'), {
+               zoom: 20,
+               center: uluru
+            });
+
+         var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+         });
+      }
+   </script>
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+   </script>
 </body>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 
 </html>
